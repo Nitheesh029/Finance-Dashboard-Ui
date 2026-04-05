@@ -1,0 +1,75 @@
+const mockTransactions = [
+  // January
+  { id: 1,  date: "2025-01-03", title: "Freelance Payment",      category: "Income",        type: "income",  amount: 2500.00 },
+  { id: 2,  date: "2025-01-05", title: "Rent",                   category: "Housing",       type: "expense", amount: 850.00  },
+  { id: 3,  date: "2025-01-07", title: "Grocery Store",          category: "Food",          type: "expense", amount: 120.50  },
+  { id: 4,  date: "2025-01-10", title: "Netflix",                category: "Subscriptions", type: "expense", amount: 15.99   },
+  { id: 5,  date: "2025-01-12", title: "Salary",                 category: "Income",        type: "income",  amount: 3200.00 },
+  { id: 6,  date: "2025-01-15", title: "Electricity Bill",       category: "Utilities",     type: "expense", amount: 75.00   },
+  { id: 7,  date: "2025-01-18", title: "Restaurant Dinner",      category: "Food",          type: "expense", amount: 58.00   },
+  { id: 8,  date: "2025-01-22", title: "Uber Ride",              category: "Transport",     type: "expense", amount: 18.50   },
+  { id: 9,  date: "2025-01-25", title: "Amazon Purchase",        category: "Shopping",      type: "expense", amount: 94.99   },
+  { id: 10, date: "2025-01-28", title: "Gym Membership",         category: "Health",        type: "expense", amount: 40.00   },
+
+  // February
+  { id: 11, date: "2025-02-01", title: "Salary",                 category: "Income",        type: "income",  amount: 3200.00 },
+  { id: 12, date: "2025-02-03", title: "Grocery Store",          category: "Food",          type: "expense", amount: 135.00  },
+  { id: 13, date: "2025-02-05", title: "Rent",                   category: "Housing",       type: "expense", amount: 850.00  },
+  { id: 14, date: "2025-02-08", title: "Spotify",                category: "Subscriptions", type: "expense", amount: 9.99    },
+  { id: 15, date: "2025-02-10", title: "Flight Ticket",          category: "Travel",        type: "expense", amount: 320.00  },
+  { id: 16, date: "2025-02-13", title: "Valentine Dinner",       category: "Food",          type: "expense", amount: 95.00   },
+  { id: 17, date: "2025-02-17", title: "Internet Bill",          category: "Utilities",     type: "expense", amount: 55.00   },
+  { id: 18, date: "2025-02-20", title: "Side Project Income",    category: "Income",        type: "income",  amount: 750.00  },
+  { id: 19, date: "2025-02-24", title: "Clothing Store",         category: "Shopping",      type: "expense", amount: 180.00  },
+  { id: 20, date: "2025-02-26", title: "Doctor Visit",           category: "Health",        type: "expense", amount: 60.00   },
+
+  // March
+  { id: 21, date: "2025-03-01", title: "Salary",                 category: "Income",        type: "income",  amount: 3200.00 },
+  { id: 22, date: "2025-03-04", title: "Grocery Store",          category: "Food",          type: "expense", amount: 110.00  },
+  { id: 23, date: "2025-03-05", title: "Rent",                   category: "Housing",       type: "expense", amount: 850.00  },
+  { id: 24, date: "2025-03-09", title: "Netflix",                category: "Subscriptions", type: "expense", amount: 15.99   },
+  { id: 25, date: "2025-03-12", title: "Bus Pass",               category: "Transport",     type: "expense", amount: 45.00   },
+  { id: 26, date: "2025-03-15", title: "Freelance Payment",      category: "Income",        type: "income",  amount: 1800.00 },
+  { id: 27, date: "2025-03-18", title: "Electricity Bill",       category: "Utilities",     type: "expense", amount: 80.00   },
+  { id: 28, date: "2025-03-21", title: "Online Course",          category: "Education",     type: "expense", amount: 99.00   },
+  { id: 29, date: "2025-03-25", title: "Restaurant Lunch",       category: "Food",          type: "expense", amount: 32.00   },
+  { id: 30, date: "2025-03-28", title: "Gym Membership",         category: "Health",        type: "expense", amount: 40.00   },
+
+  // April
+  { id: 31, date: "2025-04-01", title: "Salary",                 category: "Income",        type: "income",  amount: 3200.00 },
+  { id: 32, date: "2025-04-03", title: "Grocery Store",          category: "Food",          type: "expense", amount: 145.00  },
+  { id: 33, date: "2025-04-05", title: "Rent",                   category: "Housing",       type: "expense", amount: 850.00  },
+  { id: 34, date: "2025-04-08", title: "Spotify",                category: "Subscriptions", type: "expense", amount: 9.99    },
+  { id: 35, date: "2025-04-11", title: "Taxi",                   category: "Transport",     type: "expense", amount: 22.00   },
+  { id: 36, date: "2025-04-14", title: "Hotel Stay",             category: "Travel",        type: "expense", amount: 210.00  },
+  { id: 37, date: "2025-04-17", title: "Water Bill",             category: "Utilities",     type: "expense", amount: 30.00   },
+  { id: 38, date: "2025-04-20", title: "Bonus Payment",          category: "Income",        type: "income",  amount: 500.00  },
+  { id: 39, date: "2025-04-23", title: "Electronics Store",      category: "Shopping",      type: "expense", amount: 340.00  },
+  { id: 40, date: "2025-04-27", title: "Pharmacy",               category: "Health",        type: "expense", amount: 28.00   },
+
+  // May
+  { id: 41, date: "2025-05-01", title: "Salary",                 category: "Income",        type: "income",  amount: 3200.00 },
+  { id: 42, date: "2025-05-04", title: "Grocery Store",          category: "Food",          type: "expense", amount: 125.00  },
+  { id: 43, date: "2025-05-05", title: "Rent",                   category: "Housing",       type: "expense", amount: 850.00  },
+  { id: 44, date: "2025-05-08", title: "Netflix",                category: "Subscriptions", type: "expense", amount: 15.99   },
+  { id: 45, date: "2025-05-12", title: "Freelance Payment",      category: "Income",        type: "income",  amount: 2100.00 },
+  { id: 46, date: "2025-05-15", title: "Internet Bill",          category: "Utilities",     type: "expense", amount: 55.00   },
+  { id: 47, date: "2025-05-18", title: "Cafe",                   category: "Food",          type: "expense", amount: 24.00   },
+  { id: 48, date: "2025-05-21", title: "Bus Pass",               category: "Transport",     type: "expense", amount: 45.00   },
+  { id: 49, date: "2025-05-24", title: "Book Store",             category: "Education",     type: "expense", amount: 55.00   },
+  { id: 50, date: "2025-05-28", title: "Gym Membership",         category: "Health",        type: "expense", amount: 40.00   },
+
+  // June
+  { id: 51, date: "2025-06-01", title: "Salary",                 category: "Income",        type: "income",  amount: 3200.00 },
+  { id: 52, date: "2025-06-03", title: "Grocery Store",          category: "Food",          type: "expense", amount: 160.00  },
+  { id: 53, date: "2025-06-05", title: "Rent",                   category: "Housing",       type: "expense", amount: 850.00  },
+  { id: 54, date: "2025-06-08", title: "Spotify",                category: "Subscriptions", type: "expense", amount: 9.99    },
+  { id: 55, date: "2025-06-10", title: "Flight Ticket",          category: "Travel",        type: "expense", amount: 480.00  },
+  { id: 56, date: "2025-06-13", title: "Electricity Bill",       category: "Utilities",     type: "expense", amount: 90.00   },
+  { id: 57, date: "2025-06-17", title: "Side Project Income",    category: "Income",        type: "income",  amount: 950.00  },
+  { id: 58, date: "2025-06-20", title: "Restaurant Dinner",      category: "Food",          type: "expense", amount: 72.00   },
+  { id: 59, date: "2025-06-24", title: "Clothing Store",         category: "Shopping",      type: "expense", amount: 220.00  },
+  { id: 60, date: "2025-06-28", title: "Pharmacy",               category: "Health",        type: "expense", amount: 35.00   },
+]
+
+export default mockTransactions
