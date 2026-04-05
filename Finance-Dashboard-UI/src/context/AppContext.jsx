@@ -6,6 +6,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [role, setRole] = useState("viewer");
   const [transactions, setTransactions] = useState(mockTransactions);
+  const [currentSection, setCurrentSection] = useState("dashboard");
   const [theme, setTheme] = useState("light");
   const [filters, setFilters] = useState({
     category: "all",
@@ -16,7 +17,9 @@ export const AppProvider = ({ children }) => {
 
   const handleRole = (userRole) => setRole(userRole);
 
-  const handleTheme = (userTheme) => setTheme(userTheme);
+  const handleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   const handleSort = (sortOption) => setSort(sortOption);
 
@@ -30,6 +33,8 @@ export const AppProvider = ({ children }) => {
         filters,
         sort,
         search,
+        currentSection,
+        setCurrentSection,
         handleRole,
         handleTheme,
         handleSort,
