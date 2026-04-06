@@ -1,28 +1,18 @@
 import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../context/AppContext.jsx";
 import { Search } from "lucide-react";
 
 const TransactionFilters = () => {
-  const { search, handleSearch, filters, setFilters, sort, handleSort } =
+  const { search, handleSearch, filters, setFilters, sort, handleSort, transactions } =
     useContext(AppContext);
 
-  const categories = [
-    "Food",
-    "Housing",
-    "Transport",
-    "Shopping",
-    "Health",
-    "Travel",
-    "Subscriptions",
-    "Education",
-    "Income",
-  ];
+  const categories = [...new Set(transactions.map((transaction) => transaction.category))];
 
   return (
-    <div className="w-full px-4 py-3 text-zinc-900 dark:text-zinc-200 flex flex-col border dark:bg-zinc-800 rounded-md gap-y-3 border-zinc-200 dark:border-zinc-700 shadow-md">
-      <div className="text-base font-semibold">Filters</div>
+    <section className="w-full rounded-2xl border border-zinc-200 bg-white p-4 text-zinc-900 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+      <div className="mb-4 text-base font-semibold">Filters</div>
 
-      <div className="flex flex-row gap-x-3 w-full md:w-[60%] border border-zinc-300 dark:border-zinc-600 px-3 py-1.5 items-center rounded-xl bg-white dark:bg-zinc-700">
+      <div className="mb-4 flex w-full items-center gap-x-3 rounded-xl border border-zinc-300 bg-white px-3 py-2 dark:border-zinc-600 dark:bg-zinc-700">
         <Search size={16} className="text-zinc-400 shrink-0" />
         <input
           type="text"
@@ -33,7 +23,7 @@ const TransactionFilters = () => {
         />
       </div>
 
-      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid w-full grid-cols-2 gap-3 md:grid-cols-4">
         <div className="flex flex-col gap-y-1">
           <label className="text-xs text-zinc-500 dark:text-zinc-400">
             Type
@@ -92,7 +82,7 @@ const TransactionFilters = () => {
             Reset
           </label>
           <button
-            className="border border-zinc-300 dark:border-zinc-600 rounded-lg px-3 py-1.5 text-sm text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors"
+            className="rounded-lg border border-zinc-300 px-3 py-1.5 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-700"
             onClick={() => {
               handleSearch("");
               setFilters({ category: "all", type: "all" });
@@ -103,7 +93,7 @@ const TransactionFilters = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

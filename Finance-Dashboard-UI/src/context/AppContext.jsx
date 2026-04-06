@@ -24,6 +24,33 @@ export const AppProvider = ({ children }) => {
   const handleSort = (sortOption) => setSort(sortOption);
 
   const handleSearch = (value) => setSearch(value);
+
+  const addTransaction = (transaction) => {
+    setTransactions((prev) => [
+      {
+        ...transaction,
+        id: Date.now(),
+      },
+      ...prev,
+    ]);
+  };
+
+  const updateTransaction = (updatedTransaction) => {
+    setTransactions((prev) =>
+      prev.map((transaction) =>
+        transaction.id === updatedTransaction.id
+          ? updatedTransaction
+          : transaction,
+      ),
+    );
+  };
+
+  const deleteTransaction = (transactionId) => {
+    setTransactions((prev) =>
+      prev.filter((transaction) => transaction.id !== transactionId),
+    );
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -41,6 +68,9 @@ export const AppProvider = ({ children }) => {
         handleSearch,
         setTransactions,
         setFilters,
+        addTransaction,
+        updateTransaction,
+        deleteTransaction,
       }}
     >
       {children}
