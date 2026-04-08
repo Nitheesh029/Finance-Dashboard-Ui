@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../context/AppContext.jsx";
+import { useContext, useState } from "react";
+import { AppContext } from "../../context/AppContextInstance.js";
 
 const defaultForm = {
   title: "",
@@ -9,32 +9,24 @@ const defaultForm = {
   date: "",
 };
 
-const TransactionModal = ({ isOpen, onClose, transaction }) => {
+const TransactionModal = ({ onClose, transaction }) => {
   const { addTransaction, updateTransaction, transactions } = useContext(AppContext);
-  const [formData, setFormData] = useState(defaultForm);
-
   const categories = [...new Set(transactions.map((item) => item.category))];
-
-  useEffect(() => {
-    if (transaction) {
-      setFormData({
-        title: transaction.title,
-        amount: transaction.amount,
-        category: transaction.category,
-        type: transaction.type,
-        date: transaction.date,
-      });
-      return;
-    }
-
-    setFormData({
-      ...defaultForm,
-      category: categories[0] || defaultForm.category,
-      date: new Date().toISOString().split("T")[0],
-    });
-  }, [transaction, isOpen]);
-
-  if (!isOpen) return null;
+  const [formData, setFormData] = useState(() =>
+    transaction
+      ? {
+          title: transaction.title,
+          amount: transaction.amount,
+          category: transaction.category,
+          type: transaction.type,
+          date: transaction.date,
+        }
+      : {
+          ...defaultForm,
+          category: categories[0] || defaultForm.category,
+          date: new Date().toISOString().split("T")[0],
+        },
+  );
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));

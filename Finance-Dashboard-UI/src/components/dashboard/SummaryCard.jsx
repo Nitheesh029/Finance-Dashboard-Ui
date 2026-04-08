@@ -1,4 +1,6 @@
-const SummaryCard = ({ title, value, type, icon: Icon }) => {
+const SummaryCard = ({ title, value, type, icon }) => {
+  const IconComponent = icon;
+
   const getTypeStyles = () => {
     if (type === "income")
       return "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300";
@@ -15,7 +17,9 @@ const SummaryCard = ({ title, value, type, icon: Icon }) => {
   return (
     <div className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl p-5 flex flex-col gap-y-3">
       <div className="flex flex-row items-center justify-between">
-        <div>{<Icon size={24} className={getIconStyles()} />}</div>
+        <div>
+          <IconComponent size={24} className={getIconStyles()} />
+        </div>
         <span
           className={`text-xs font-medium px-2 py-1 rounded-full ${getTypeStyles()}`}
         >

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import InsightCard from "../components/insights/InsightCard.jsx";
 import EmptyState from "../components/ui/EmptyState.jsx";
-import { AppContext } from "../context/AppContext.jsx";
+import { AppContext } from "../context/AppContextInstance.js";
 import {
   getAverageMonthlyExpense,
   getHighestSpending,

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import TransactionFilters from "../components/transactions/TransactionFilters.jsx";
 import TransactionModal from "../components/transactions/TransactionModal.jsx";
 import TransactionTable from "../components/transactions/TransactionTable.jsx";
-import { AppContext } from "../context/AppContext.jsx";
+import { AppContext } from "../context/AppContextInstance.js";
 
 const Transactions = () => {
   const { role } = useContext(AppContext);
@@ -49,11 +49,13 @@ const Transactions = () => {
 
       <TransactionFilters />
       <TransactionTable onEdit={handleEdit} />
-      <TransactionModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        transaction={editingTransaction}
-      />
+      {isModalOpen ? (
+        <TransactionModal
+          key={editingTransaction?.id ?? "new"}
+          onClose={handleCloseModal}
+          transaction={editingTransaction}
+        />
+      ) : null}
     </div>
   );
 };

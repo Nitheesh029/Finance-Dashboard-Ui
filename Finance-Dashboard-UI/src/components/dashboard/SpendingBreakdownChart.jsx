@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../context/AppContextInstance.js";
 import { getSpendingByCategory } from "../../utils/calculations";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";

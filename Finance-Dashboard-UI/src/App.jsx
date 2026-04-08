@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "./context/AppContext.jsx";
+import { AppContext } from "./context/AppContextInstance.js";
 import Layout from "./components/layout/Layout.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Insights from "./pages/Insights.jsx";

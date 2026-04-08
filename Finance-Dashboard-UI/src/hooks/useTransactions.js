@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext.jsx";
+import { AppContext } from "../context/AppContextInstance.js";
 
 export const useTransactions = () => {
   const { transactions, filters, sort, search } = useContext(AppContext);

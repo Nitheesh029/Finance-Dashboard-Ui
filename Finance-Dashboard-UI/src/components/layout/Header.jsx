@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../context/AppContextInstance.js";
 const Header = () => {
   const { currentSection, handleRole, role } = useContext(AppContext);
   return (

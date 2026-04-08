@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../context/AppContext.jsx";
+import { AppContext } from "../../context/AppContextInstance.js";
 import Badge from "../ui/Badge.jsx";
 
 const TransactionRow = ({ transaction, onEdit }) => {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../context/AppContextInstance.js";
 import SummaryCard from "../components/dashboard/SummaryCard";
 import BalanceTrendChart from "../components/dashboard/BalanceTrendChart";
 import SpendingBreakdownChart from "../components/dashboard/SpendingBreakdownChart";

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../context/AppContext.jsx";
+import { AppContext } from "../../context/AppContextInstance.js";
 import { Search } from "lucide-react";
 
 const TransactionFilters = () => {

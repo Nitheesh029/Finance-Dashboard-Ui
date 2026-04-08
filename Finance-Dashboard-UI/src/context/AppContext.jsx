@@ -1,7 +1,6 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 import mockTransactions from "../data/mockTransactions";
-
-export const AppContext = createContext();
+import { AppContext } from "./AppContextInstance.js";
 
 export const AppProvider = ({ children }) => {
   const [role, setRole] = useState("viewer");

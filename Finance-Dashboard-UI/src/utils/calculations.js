@@ -67,7 +67,7 @@ export const getMonthlyTotals = (transactions) => {
 
   return Object.entries(grouped)
     .sort()
-    .map(([key, value]) => ({
+    .map(([, value]) => ({
       month: value.month,
       income: parseFloat(value.income.toFixed(2)),
       expense: parseFloat(value.expenses.toFixed(2)),
